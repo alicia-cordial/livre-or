@@ -1,0 +1,166 @@
+/****************************************GENERAL*********************************/
+*
+{
+    margin : Opx;
+    padding: Opx;
+
+}
+
+body
+{
+    background-image: url(../images/quidditchbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+h1
+{
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+}
+
+h2
+{
+    text-align: center;
+    color: white;
+}
+
+/*********************************HEADER************************************/
+header 
+{
+    box-sizing: border-box;
+    position: relative;   
+    display: flex;
+    align-self: center;
+    top: 0px;
+    margin: 0px;
+  }
+  
+
+  #listeNavTop 
+  {
+    font-family: 'Peddana', serif;
+    border-radius: 25px;
+    top:0;
+  }
+
+
+  img{
+    padding-left: 40px;
+    -webkit-transition: 3s ease-in-out;
+    -moz-transition: 3s ease-in-out;
+    -o-transition: 3s ease-in-out;
+    transition: 3s ease-in-out;
+  }
+  
+  img:hover
+  {
+    -webkit-transform: translate(3em,0);
+    -moz-transform: translate(3em,0);
+    -o-transform: translate(3em,0);
+    -ms-transform: translate(3em,0);
+    transform: translate(100em,0);
+  }
+  
+/***************************LIENS**************************************/
+  
+nav li 
+{
+  font-family: 'Peddana', serif;
+  padding: 25px;
+
+}
+  ul 
+  {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  li 
+  {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+  
+  a
+  {
+      color: white;
+      font-size: 1.3em;
+      text-decoration: none;
+
+      
+  }
+  
+  a:hover
+  {
+    color: lightskyblue;
+
+  }
+
+/**********************************************FOOTER************************/
+  footer
+{
+    color: white;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    bottom: 0px;
+    margin: 0px;
+    font-size: 1.5em;
+}
+
+
+
+/****************************LIVRE D'OR*****************************/
+
+
+
+
+/***************TABLEAU***************/
+table
+{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    height: 60vh;
+    border: 5px;
+    border-width:1px; 
+    border-style:solid; ;
+    width:100%;
+    color: black;
+    padding-bottom: 10px;
+}
+
+td, th 
+{ 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ width:10%;
+ color:black;
+ text-align: center;
+ font-size: 1.3em;
+ }
+
+ .commentaire
+ {
+     width: 300px;
+     height: 200px;
+     background-color: lightpink;
+     color: black;
+     border-radius: 20px;
+ }
+ 
+ .commentaire a:hover
+ {
+     color: blue;
+ }
