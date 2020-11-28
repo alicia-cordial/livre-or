@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
  
  
 if(isset($_POST['formconnexion'])) 
@@ -67,7 +67,7 @@ if(isset($_POST['formconnexion']))
     
      
         <main>
-        <h1>Bienvenue sur le site des croyants de toute forme de vie</h1>
+        <h1>Bienvenue sur ce site magique</h1>
    
     <!--Formulaire-->      
 

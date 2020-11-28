@@ -48,6 +48,8 @@ if(isset($_POST['submit']))
         <a href="https://actu.fr/auvergne-rhone-alpes/lyon_69123/ces-jeunes-lyon-vont-jouer-ligue-champions-quidditch-2020_29370469.html"><li>La ligue des champions</li></a>
           <img src="../images/mouchard.png" alt="mouchard"></img>
         </section>
+
+        
         
                 </ul>
               </nav>
@@ -118,8 +120,13 @@ if(isset($_POST['submit']))
         
         <footer>
             <ul id="listeNavTop">
-            <section class="lien">
-                
+            
+        <section class="lien">
+            <a href="livre-or.php"><li>Notre livre d'or</li></a>
+            <img src="../images/mouchard.png" alt="mouchard"></img>
+        </section>
+
+        <section class="lien">
             <a href="https://www.facebook.com/Quidditch-Marseille-442769749184175/"><li>Club Quidditch Marseille</li></a>
           <img src="../images/mouchard.png" alt="mouchard"></img>
         </section>

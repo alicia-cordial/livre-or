@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
  
 if(isset($_POST['forminscription'])) {
     $login = htmlspecialchars($_POST['login']);
@@ -92,7 +92,7 @@ if(isset($_POST['forminscription'])) {
         
         <article class="user-box">
           <label for="password2">Confirmation Mot de passe :</label>
-          <input type="password2" placeholder="Confirmez votre mdp" id="password2" name="password2" />
+          <input type="password" placeholder="Confirmez votre mdp" id="password2" name="password2" />
         </article>
     
         <article class="user-box">

@@ -1,6 +1,13 @@
 <?php
 session_start();
-?>
+$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
+if(isset($_SESSION['id'])) {
+    $requser = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
+    $requser->execute(array($_SESSION['id']));
+    $userinfo = $requser->fetch();   
+ }
+ ?>
+ 
 
 
 <!DOCTYPE html>
@@ -45,23 +52,21 @@ session_start();
     
      
         <main>
-        <h1>Bienvenue sur le site des amis de toute forme de vie</h1>
+        <h1>Les petits commentaires des sorciers et sorcières</h1>
 
-
+        <h2>Profil de <?php echo $userinfo['login']; ?></h2>
 <?php
-$bdd = mysqli_connect("localhost", "root", "root", "livreor");
-$requete = "SELECT date AS 'posté', login AS 'utilisateur', commentaire FROM `commentaires` INNER JOIN `utilisateurs` ON commentaires.id_utilisateurs = utilisateurs.id ORDER BY date DESC;";
 
-$query = mysqli_query($bdd, $requete);
+$requser = $bdd->prepare("SELECT date AS 'posté', login AS 'utilisateur', commentaire FROM `commentaires` INNER JOIN `utilisateurs` ON commentaires.id_utilisateurs = utilisateurs.id ORDER BY date DESC;");
+$requser->execute();
 
 $i=0;
 
 echo "<table>" ;
 
-while ($result = mysqli_fetch_assoc($query))
+while ($result = $requser->fetch(PDO::FETCH_ASSOC))
 {
-
-  if ($i == 0)
+    if ($i == 0)
   {
 
     foreach ($result as $key => $value)
@@ -73,12 +78,15 @@ while ($result = mysqli_fetch_assoc($query))
   }
 
   echo "<tr>";
-
-    foreach ($result as $key => $value) 
-    {
-  echo "<td>$value</td>";
+  foreach ($result as $key => $value) {
+    if ($key == "posté"){
+      date_default_timezone_set('Europe/Paris');
+      $value =  date("d-m-Y", strtotime($value));  ;
+    echo "<td>$value</td>";
     }
-    
+    else
+      echo "<td>" .nl2br($value). "</td>";
+  }
   echo "</tr>";
 }
 
@@ -93,20 +101,14 @@ if (isset($erreur))
 }
 ?>
 
-
 </form>                                                                                              
 </section>
    
 <section class="commentaire">
-      <?php
-      if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
-         ?>
-         <br />
-         <a href="commentaire.php">Laisser un commentaire</a>
-         <?php
-         }
-         ?>
-      </section>
+<a href="commentaire.php" class="button" name="submit" type="submit">
+        <span>Laissez votre petit commentaire</span>
+    </a>   
+</section>
      </main>
                                                      
                                                      

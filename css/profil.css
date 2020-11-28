@@ -1,0 +1,190 @@
+*
+{
+    margin : Opx;
+    padding: Opx;
+
+}
+
+body
+{
+    background-image: url(../images/quidditchbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header 
+{
+    box-sizing: border-box;
+    position: relative;   
+    display: flex;
+    align-self: center;
+    top: 0px;
+
+    margin: 0px;
+  }
+  
+  ul 
+  {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  li 
+  {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  
+  nav li 
+  {
+    font-family: 'Peddana', serif;
+    padding: 25px;
+ 
+  }
+  
+  #listeNavTop 
+  {
+    font-family: 'Peddana', serif;
+    border-radius: 25px;
+    top:0;
+  }
+   
+  a
+  {
+      color: white;
+      font-size: 1.3em;
+      text-decoration: none;
+      
+  }
+  
+  a:hover
+  {
+      color: #39FF14;
+  }
+
+  footer
+{
+    color: white;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    bottom: 0px;
+    margin: 0px;
+    font-size: 1.5em;
+}
+
+.column
+{
+    display: flex;
+    flex-direction: row;
+}
+
+h1
+{
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+}
+
+
+
+/****************************PROFIL*****************************/
+
+legend
+{
+    font-size: 30px;
+}
+
+.profil
+{
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    margin-top: 40%;
+    left: 50%;
+    width: 400px;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+.profil .user-box 
+{
+  position: relative;
+}
+
+
+.profil .user-box input 
+{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.profil .user-box label 
+{
+  position: relative;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.profil.user-box input:focus ~ label,
+.profil .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+}
+
+.profil form a 
+{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  letter-spacing: 4px
+}
+
+.infos
+{
+  font-size: 20px;
+}
+
+.deconnexion
+{
+    width: 300px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.deconnexion a:hover
+{
+    color: lightskyblue;
+}

@@ -1,21 +1,36 @@
 <?php
+session_start();
 
-$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', 'root');
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
-    $getid = intval($_GET['id']);
+$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
+if(isset($_SESSION['id'])) {
     $requser = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
-    $requser->execute(array($getid));
-    $userinfo = $requser->fetch();
- ?>
+    $requser->execute(array($_SESSION['id']));
+    $userinfo = $requser->fetch();   
+}  
  
- <?php   
- }
- ?>
- 
+    if(isset($_POST['forminscription'])) {
+        $commentaire = $_POST['commentaire'];
+        if(!empty($commentaire))
+        {
+        date_default_timezone_get('Europe/Paris');
+        $date =date("Y-m-d");
+        $requetecom = $bdd->prepare("INSERT INTO  commentaires(commentaire, id_utilisateurs, date) VALUES(?, ?, ?)");
+        $requetecom->execute(array($commentaire, $_SESSION['id'], $date));
+        header("location:livre-or.php?id=".$_SESSION['id']);
+        }
+        else
+        {
+           $erreur;
+        }
+    }
+    else
+    {
+        $erreur;
+    }
 
 
+?>
 
-   
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -72,11 +87,11 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
       
         <article class="user-box">
           <label for="commentaire">Commentaire :</label>
-          <textarea name="nom" rows=10 cols=80 placeholder="Votre petit commentaire magique!" valeur="<?php if(isset($login)) { echo $login; } ?>"></textarea>
+          <textarea name="commentaire" rows=10 cols=80 placeholder="Votre petit commentaire magique!" ></textarea>
         </article>  
 
         <article class="user-box">
-            <input type="submit" name="forminscription" value="Je m'inscris" />
+            <input type="submit" name="forminscription" value="Poster mon commentaire" />
         </article>
 </fieldset>
 
@@ -91,7 +106,7 @@ if (isset($erreur))
 
 </form>                                                                                              
 </section>
-   
+
      </main>
                                                      
                                                      

@@ -1,16 +1,15 @@
 <?php
 session_start();
  
-$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
  
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $getid = intval($_GET['id']);
    $requser = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
    $requser->execute(array($getid));
    $userinfo = $requser->fetch();
-?>
 
-<?php   
+   
 }
 ?>
 
@@ -33,12 +32,15 @@ if(isset($_SESSION['id'])) {
       if($password == $password2) {
          $insertmdp = $bdd->prepare("UPDATE utilisateurs SET password = ? WHERE id = ?");
          $insertmdp->execute(array($password, $_SESSION['id']));
-         header('Location: livre-or.php?id='.$_SESSION['id']);
+         header('Location: profil.php?id='.$_SESSION['id']);
       } else {
          $msg = "Vos deux mdp ne correspondent pas !";
       }
    }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -123,7 +125,7 @@ if(isset($_SESSION['id'])) {
          }
          ?>
       </section>
-      
+
       </main>
                                                      
                                                      
