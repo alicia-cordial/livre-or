@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
 
     <head>
         <meta charset= "utf-8"/>
-        <link rel= "stylesheet" href= "../css/index.css">
+        <link rel= "stylesheet" href= "../index.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
